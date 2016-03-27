@@ -2,8 +2,11 @@
 
 int main()
 {
-	printf("Hola mundo\n");
+    char nombre[256];
+    printf("Escriba su nombre: ");
+    scanf("%s", nombre);
+    printf("Hola %s!\n", nombre);
 
-	return 0;
+    return 0;
 }
 
