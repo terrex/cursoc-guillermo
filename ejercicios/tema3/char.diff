@@ -1,5 +1,5 @@
---- charpuntero.s	2016-04-07 20:19:52.841289683 +0200
-+++ chararray.s	2016-04-07 20:19:52.853289445 +0200
+--- charpuntero.s	2016-04-07 20:24:40.171639492 +0200
++++ chararray.s	2016-04-07 20:24:40.183639258 +0200
 @@ -1,7 +1,4 @@
 -	.file	"charpuntero.c"
 -	.section	.rodata
@@ -9,24 +9,26 @@
  	.text
  	.globl	a
  	.type	a, @function
-@@ -13,9 +10,19 @@
+@@ -13,10 +10,19 @@
  	.cfi_offset 6, -16
  	movq	%rsp, %rbp
  	.cfi_def_cfa_register 6
 -	movq	$.LC0, -8(%rbp)
+-	movq	-8(%rbp), %rax
+-	movzbl	2(%rax), %eax
+-	popq	%rbp
 +	subq	$16, %rsp
 +	movq	%fs:40, %rax
 +	movq	%rax, -8(%rbp)
 +	xorl	%eax, %eax
 +	movl	$1634496360, -16(%rbp)
 +	movb	$0, -12(%rbp)
- 	nop
--	popq	%rbp
-+	movq	-8(%rbp), %rax
-+	xorq	%fs:40, %rax
-+	je	.L2
++	movzbl	-14(%rbp), %eax
++	movq	-8(%rbp), %rdx
++	xorq	%fs:40, %rdx
++	je	.L3
 +	call	__stack_chk_fail
-+.L2:
++.L3:
 +	leave
  	.cfi_def_cfa 7, 8
  	ret

@@ -16,12 +16,12 @@ a:
 	xorl	%eax, %eax
 	movl	$1634496360, -16(%rbp)
 	movb	$0, -12(%rbp)
-	nop
-	movq	-8(%rbp), %rax
-	xorq	%fs:40, %rax
-	je	.L2
+	movzbl	-14(%rbp), %eax
+	movq	-8(%rbp), %rdx
+	xorq	%fs:40, %rdx
+	je	.L3
 	call	__stack_chk_fail
-.L2:
+.L3:
 	leave
 	.cfi_def_cfa 7, 8
 	ret

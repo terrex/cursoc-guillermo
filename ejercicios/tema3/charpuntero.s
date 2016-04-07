@@ -14,7 +14,8 @@ a:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	movq	$.LC0, -8(%rbp)
-	nop
+	movq	-8(%rbp), %rax
+	movzbl	2(%rax), %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
