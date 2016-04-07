@@ -27,7 +27,20 @@ int main(void)
 	for (i = 0, C_p = C, A_p = A, B_p = B; i < 5; i++)
 		C_p[i] = A_p[i] * B_p[i];
 
-	char *cadena = "the quick brown fox jumps over the lazy dog";
+	/*
+	 * La diferencia entre declararlo como
+	 * char *cadena y como char cadena[] es:
+	 * - con *cadena se guarda en memoria no modificable, da un SIGSEV
+	 *   al intentar modificar un caracter de la cadena, en el punto [$$1].
+	 * - con cadena[] sin embargo se marca la zona como modificable, y
+	 *   no hay violación del uso permitido.
+	 *
+	 * Pensaba que para hacer esa distinción estaba el
+	 * modificador `const' ¿?¿?¿!
+	 *
+	 * char *cadena = "the quick brown fox jumps over the lazy dog";
+	 */
+	char cadena[] = "the quick brown fox jumps over the lazy dog";
 	char *cadena_a_p, *cadena_b_p;
 	char temp;
 
@@ -37,7 +50,7 @@ int main(void)
 		cadena_a_p != cadena_b_p; cadena_a_p++, cadena_b_p--) {
 		temp = (char) (*cadena_b_p);
 		printf("cambio %c por %c\n", temp, (char) (*cadena_a_p));
-		*cadena_b_p = (char) (*cadena_a_p);
+		*cadena_b_p = (char) (*cadena_a_p); /* posible SIGSEV [$$1] */
 		*cadena_a_p = temp;
 	}
 	printf("cadena invertida: %s\n", cadena);

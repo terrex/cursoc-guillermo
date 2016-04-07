@@ -1,12 +1,15 @@
 #include <stdio.h>
 
 #define MAYUSC(c, out) do { \
-    if (c >= 0x61 && c <= 0x7A) { out = c - 0x20; } \
-    else if (c >= 0x41 && c <= 0x5A) {} \
-    else { printf("ERROR: No es una letra, %s:%d\n", __FILE__, __LINE__); } \
-} while (0);
+	if ((c) >= 'a' && (c) <= 'z') \
+		(out) = (c) - 0x20; \
+	else if ((c) >= 'A' && (c) <= 'Z') \
+		; \
+	else \
+		printf("ERROR: No es una letra, %s:%d\n", __FILE__, __LINE__); \
+} while (0)
 
-int main()
+int main(void)
 {
 	char a = 'a';
 	char b = 'b';

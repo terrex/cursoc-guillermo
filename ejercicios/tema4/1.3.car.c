@@ -1,23 +1,20 @@
 #include <stdio.h>
 
-struct person
-{
+struct person {
 	char name[256];
 	char surname[256];
 	unsigned char age;
 	unsigned int phone;
 };
 
-enum person_attr
-{
+enum person_attr {
 	NAME,
 	SURNAME,
 	AGE,
 	PHONE
 };
 
-struct car
-{
+struct car {
 	char manufacturer[100];
 	char model[100];
 	char color[30];
@@ -44,7 +41,7 @@ void print_car(const struct car *c)
 
 void print_attr(const struct person *p, enum person_attr attr)
 {
-	switch(attr) {
+	switch (attr) {
 	case NAME:
 		printf("%s", p->name);
 		break;
@@ -63,12 +60,12 @@ void print_attr(const struct person *p, enum person_attr attr)
 }
 
 
-int main()
+int main(void)
 {
 	struct person persona = {"Juan", "Tanamera", 23, 956123123};
 
 	struct car coche = {"Peugeot", "206CC", "Azul", "3321DXR", &persona};
-	
+
 	print_car(&coche);
 
 	return 0;

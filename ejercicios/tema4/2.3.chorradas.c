@@ -1,21 +1,23 @@
 #include <stdio.h>
 #include <stdint.h>
 
-union string64
-{
+union string64 {
 	char text[8];
 	uint64_t numeric;
 };
 
 #define MAYUSC(c, out) do { \
-    if (c >= 0x61 && c <= 0x7A) { out = c - 0x20; } \
-    else if (c >= 0x41 && c <= 0x5A) {} \
-    else { printf("ERROR: No es una letra, %s:%d\n", __FILE__, __LINE__); } \
-} while (0);
+	if ((c) >= 'a' && (c) <= 'z') \
+		(out) = (c) - 0x20; \
+	else if ((c) >= 'A' && (c) <= 'Z') \
+		; \
+	else \
+		printf("ERROR: No es una letra, %s:%d\n", __FILE__, __LINE__); \
+} while (0)
 
-int main()
+int main(void)
 {
-	union string64 us64 = {'P', 'e' , 'r' , 'i', 'c', 'o'};
+	union string64 us64 = {{'P', 'e', 'r', 'i', 'c', 'o', '\0'} };
 
 	printf("El texto es %s\n", us64.text);
 	printf("En su representación numérica es %llu\n", us64.numeric);
