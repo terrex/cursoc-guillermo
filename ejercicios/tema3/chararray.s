@@ -10,13 +10,20 @@ a:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
+	subq	$48, %rsp
 	movq	%fs:40, %rax
 	movq	%rax, -8(%rbp)
 	xorl	%eax, %eax
-	movl	$1634496360, -16(%rbp)
-	movb	$0, -12(%rbp)
-	movzbl	-14(%rbp), %eax
+	movabsq	$7809632571816441203, %rax
+	movq	%rax, -48(%rbp)
+	movabsq	$7596562564204619369, %rax
+	movq	%rax, -40(%rbp)
+	movabsq	$8102931683653284979, %rax
+	movq	%rax, -32(%rbp)
+	movabsq	$8030885037587849577, %rax
+	movq	%rax, -24(%rbp)
+	movb	$0, -16(%rbp)
+	movzbl	-46(%rbp), %eax
 	movq	-8(%rbp), %rdx
 	xorq	%fs:40, %rdx
 	je	.L3

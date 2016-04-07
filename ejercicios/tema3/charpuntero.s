@@ -1,7 +1,8 @@
 	.file	"charpuntero.c"
 	.section	.rodata
+	.align 8
 .LC0:
-	.string	"hola"
+	.string	"supercalifragilisticoespialidoso"
 	.text
 	.globl	a
 	.type	a, @function
