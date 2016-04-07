@@ -7,3 +7,8 @@ check:
 
 %: %.o
 
+charpuntero.s: charpuntero.c
+	gcc -O0 -S charpuntero.c
+
+chararray.s: chararray.c
+	gcc -O0 -S chararray.c

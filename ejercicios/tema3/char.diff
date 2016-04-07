@@ -1,0 +1,20 @@
+--- chararray.s	2016-04-07 20:15:12.000000000 +0200
++++ charpuntero.s	2016-04-07 20:15:09.000000000 +0200
+@@ -1,3 +1,6 @@
++	.cstring
++LC0:
++	.ascii "hola\0"
+ 	.text
+ 	.globl _a
+ _a:
+@@ -6,8 +9,8 @@
+ LCFI0:
+ 	movq	%rsp, %rbp
+ LCFI1:
+-	movl	$1634496360, -16(%rbp)
+-	movb	$0, -12(%rbp)
++	leaq	LC0(%rip), %rax
++	movq	%rax, -8(%rbp)
+ 	nop
+ 	popq	%rbp
+ LCFI2:
