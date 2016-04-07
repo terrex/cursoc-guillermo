@@ -2,12 +2,12 @@
 #include <stdbool.h>
 #include <string.h>
 
-int main()
+int main(void)
 {
 	char cadena[] = "the quick brown fox jumps over the lazy dog";
-	//char cadena[] = "the quick brown fox, jumps over the lazy dog";
-	//char cadena[] = "t";
-	//char cadena[] = "";
+	/* char cadena[] = "the quick brown fox, jumps over the lazy dog"; */
+	/* char cadena[] = "t"; */
+	/* char cadena[] = ""; */
 	printf("Original: %s (%lu)\n", cadena, strlen(cadena));
 
 	for (int i = 0; i < strlen(cadena); i++)
@@ -16,6 +16,7 @@ int main()
 	printf("Todo mayusculas: %s\n", cadena);
 
 	bool espacio_anterior = true;
+
 	for (int i = 0; i < strlen(cadena); i++) {
 		if (espacio_anterior) {
 			if (cadena[i] >= 'a' && cadena[i] <= 'z')
