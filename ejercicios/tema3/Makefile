@@ -12,3 +12,7 @@ charpuntero.s: charpuntero.c
 
 chararray.s: chararray.c
 	gcc -O0 -S chararray.c
+
+char.diff: charpuntero.s chararray.s
+	-diff -u charpuntero.s chararray.s > char.diff
+
