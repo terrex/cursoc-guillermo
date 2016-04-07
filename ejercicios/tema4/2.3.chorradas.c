@@ -20,14 +20,14 @@ int main(void)
 	union string64 us64 = {{'P', 'e', 'r', 'i', 'c', 'o', '\0'} };
 
 	printf("El texto es %s\n", us64.text);
-	printf("En su representación numérica es %llu\n", us64.numeric);
+	printf("En su representación numérica es %lu\n", us64.numeric);
 
 	MAYUSC(us64.text[3], us64.text[3]);
 	MAYUSC(us64.text[4], us64.text[4]);
 	MAYUSC(us64.text[5], us64.text[5]);
 
 	printf("El texto es %s\n", us64.text);
-	printf("En su representación numérica es %llu\n", us64.numeric);
+	printf("En su representación numérica es %lu\n", us64.numeric);
 
 	us64.numeric = 776236472234;
 

@@ -11,7 +11,7 @@ int main(void)
 	union string64 us64 = {{'P', 'e', 'r', 'i', 'c', 'o', '\0'} };
 
 	printf("El texto es %s\n", us64.text);
-	printf("En su representación numérica es %llu\n", us64.numeric);
+	printf("En su representación numérica es %lu\n", us64.numeric);
 
 	return 0;
 }
