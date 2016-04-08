@@ -1,7 +1,8 @@
 	.file	"charpuntero.c"
 	.section	.rodata
+	.align 8
 .LC0:
-	.string	"hola"
+	.string	"supercalifragilisticoespialidoso"
 	.text
 	.globl	a
 	.type	a, @function
@@ -14,7 +15,8 @@ a:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	movq	$.LC0, -8(%rbp)
-	nop
+	movq	-8(%rbp), %rax
+	movzbl	2(%rax), %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret

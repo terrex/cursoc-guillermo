@@ -1,32 +1,42 @@
---- charpuntero.s	2016-04-07 20:19:52.841289683 +0200
-+++ chararray.s	2016-04-07 20:19:52.853289445 +0200
-@@ -1,7 +1,4 @@
+--- charpuntero.s	2016-04-07 20:27:04.424823526 +0200
++++ chararray.s	2016-04-07 20:27:04.436823291 +0200
+@@ -1,8 +1,4 @@
 -	.file	"charpuntero.c"
 -	.section	.rodata
+-	.align 8
 -.LC0:
--	.string	"hola"
+-	.string	"supercalifragilisticoespialidoso"
 +	.file	"chararray.c"
  	.text
  	.globl	a
  	.type	a, @function
-@@ -13,9 +10,19 @@
+@@ -14,10 +10,26 @@
  	.cfi_offset 6, -16
  	movq	%rsp, %rbp
  	.cfi_def_cfa_register 6
 -	movq	$.LC0, -8(%rbp)
-+	subq	$16, %rsp
+-	movq	-8(%rbp), %rax
+-	movzbl	2(%rax), %eax
+-	popq	%rbp
++	subq	$48, %rsp
 +	movq	%fs:40, %rax
 +	movq	%rax, -8(%rbp)
 +	xorl	%eax, %eax
-+	movl	$1634496360, -16(%rbp)
-+	movb	$0, -12(%rbp)
- 	nop
--	popq	%rbp
-+	movq	-8(%rbp), %rax
-+	xorq	%fs:40, %rax
-+	je	.L2
++	movabsq	$7809632571816441203, %rax
++	movq	%rax, -48(%rbp)
++	movabsq	$7596562564204619369, %rax
++	movq	%rax, -40(%rbp)
++	movabsq	$8102931683653284979, %rax
++	movq	%rax, -32(%rbp)
++	movabsq	$8030885037587849577, %rax
++	movq	%rax, -24(%rbp)
++	movb	$0, -16(%rbp)
++	movzbl	-46(%rbp), %eax
++	movq	-8(%rbp), %rdx
++	xorq	%fs:40, %rdx
++	je	.L3
 +	call	__stack_chk_fail
-+.L2:
++.L3:
 +	leave
  	.cfi_def_cfa 7, 8
  	ret

@@ -1,4 +1,6 @@
-void a()
+char a()
 {
-	char *x = "hola";
+	char *x = "supercalifragilisticoespialidoso";
+	return x[2];
 }
+
