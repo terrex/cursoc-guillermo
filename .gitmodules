@@ -1,0 +1,3 @@
+[submodule "juego-vida"]
+	path = juego-vida
+	url = ./juego-vida/
