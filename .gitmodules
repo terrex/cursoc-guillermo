@@ -1,0 +1,3 @@
+[submodule "juego-vida"]
+	path = juego-vida
+	url = https://github.com/terrex/cursoc-guillermo-GoL.git
